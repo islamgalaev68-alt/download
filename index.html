@@ -1,0 +1,26 @@
+html<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Загрузка приложения</title>
+    <script>
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var iosUrl = "https://apple.com"; // Ваша ссылка на App Store
+            var androidUrl = "https://google.com"; // Ваша ссылка на Google Play
+            var fallbackUrl = "https://yourwebsite.com"; // Ссылка для ПК
+
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = iosUrl;
+            } else if (/android/i.test(userAgent)) {
+                window.location.href = androidUrl;
+            } else {
+                window.location.href = fallbackUrl;
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Перенаправление в магазин приложений...</p>
+</body>
+</html>
