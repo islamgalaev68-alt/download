@@ -1,4 +1,3 @@
-html<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,9 +5,9 @@ html<!DOCTYPE html>
     <script>
         window.onload = function() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var iosUrl = "https://apple.com"; // Ваша ссылка на App Store
-            var androidUrl = "https://google.com"; // Ваша ссылка на Google Play
-            var fallbackUrl = "https://yourwebsite.com"; // Ссылка для ПК
+            var iosUrl = "https://apps.apple.com/ru/app/ozon-job/id6498711171"; // Ваша ссылка на App Store
+            var androidUrl = "https://play.google.com/store/apps/details?id=ru.ozon.hire&hl=ru"; // Ваша ссылка на Google Play
+            var fallbackUrl = "https://www.rustore.ru/catalog/app/ru.ozon.hire"; // Ссылка для ПК
 
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 window.location.href = iosUrl;
