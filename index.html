@@ -1,15 +1,22 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Загрузка приложения</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка приложения Ozon Job</title>
     <script>
         window.onload = function() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var iosUrl = "https://apps.apple.com/ru/app/ozon-job/id6498711171"; // Ваша ссылка на App Store
-            var androidUrl = "https://play.google.com/store/apps/details?id=ru.ozon.hire&hl=ru"; // Ваша ссылка на Google Play
-            var fallbackUrl = "https://www.rustore.ru/catalog/app/ru.ozon.hire"; // Ссылка для ПК
+            
+            var iosUrl = "https://apps.apple.com/ru/app/ozon-job/id6498711171";
+            var androidUrl = "https://play.google.com/store/apps/details?id=ru.ozon.hire&hl=ru";
+            var fallbackUrl = "https://www.rustore.ru/catalog/app/ru.ozon.hire";
 
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            // Самая жесткая проверка на iOS, которую не обманет десктопный режим Safari
+            var isIOS = /iPad|iPhone|iPod/.test(userAgent) || 
+                        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+                        (userAgent.includes("Mac") && 'ontouchend' in document);
+
+            if (isIOS) {
                 window.location.href = iosUrl;
             } else if (/android/i.test(userAgent)) {
                 window.location.href = androidUrl;
@@ -20,6 +27,9 @@
     </script>
 </head>
 <body>
-    <p>Перенаправление в магазин приложений...</p>
+    <div style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif; color: #333;">
+        <p style="font-size: 18px;">Перенаправление в магазин приложений...</p>
+    </div>
 </body>
 </html>
+
